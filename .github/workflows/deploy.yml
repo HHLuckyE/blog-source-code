@@ -79,7 +79,12 @@ jobs:
 
       - name: Checkout theme
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
+      - name: Check content token
+        env:
+          T: ${{ secrets.CONTENT_REPO_TOKEN }}
+        run: |
+          echo "length=${#T}"
+          echo "starts=${T:0:4}"
       - name: Checkout content
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
