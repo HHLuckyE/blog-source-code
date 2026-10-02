@@ -49,7 +49,7 @@ permissions:
 
 env:
   # TODO: 替换为你的内容仓。
-  CONTENT_REPOSITORY: blog-content-repo-shirone
+  CONTENT_REPOSITORY: HHLuckyE/blog-content-repo-shirone
   CONTENT_WORKING_COPY: .content-src
 
 jobs:
