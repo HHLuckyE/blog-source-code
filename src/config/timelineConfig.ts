@@ -42,6 +42,11 @@ export const timelineConfig: TimelineConfig = withUserConfig("timeline", {
 			label: "Life",
 			icon: "material-symbols:favorite-rounded",
 		},
+		{
+			key: "contests",
+			label: "Contests",
+			icon: "material-symbols:code-rounded",
+		}
 	],
 	order: "desc",
 	// disabledTitles: [],
