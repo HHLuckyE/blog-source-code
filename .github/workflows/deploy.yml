@@ -56,7 +56,7 @@ jobs:
   deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 360
     env:
       CI: true
       # 让 content:sync 走「本地目录」模式，内容由下面的 checkout 步骤取得。

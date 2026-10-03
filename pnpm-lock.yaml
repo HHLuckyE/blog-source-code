@@ -59,9 +59,6 @@ importers:
       '@iconify-json/fa6-solid':
         specifier: ^1.2.4
         version: 1.2.4
-      '@iconify-json/material-symbols':
-        specifier: ^1.2.93
-        version: 1.2.93
       '@iconify/svelte':
         specifier: ^5.2.2
         version: 5.2.2(svelte@5.57.1)
@@ -195,6 +192,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.14
         version: 2.5.14
+      '@iconify-json/material-symbols':
+        specifier: ^1.2.93
+        version: 1.2.93
       '@iconify-json/simple-icons':
         specifier: ^1.2.97
         version: 1.2.97
