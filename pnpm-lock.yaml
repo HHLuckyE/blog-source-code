@@ -196,8 +196,8 @@ importers:
         specifier: ^1.2.94
         version: 1.2.94
       '@iconify-json/simple-icons':
-        specifier: ^1.2.98
-        version: 1.2.98
+        specifier: ^1.2.99
+        version: 1.2.99
       '@lhci/cli':
         specifier: 0.15.1
         version: 0.15.1
@@ -1328,8 +1328,8 @@ packages:
   '@iconify-json/material-symbols@1.2.94':
     resolution: {integrity: sha512-9fcCVDfSF9tUy7j9BJmyIAeHJNsxv92U1sGgF0Lm9asu2hzsU8dmxeD5ckOApnC28Ira/N+5Nms/0h38P7c57Q==}
 
-  '@iconify-json/simple-icons@1.2.98':
-    resolution: {integrity: sha512-35CEBG1H/3nsohVgJaRWtOZ/P5syRTL++ZXTISdQSC76o1mAFXngFoSm9EOnnBiDApKPu8WN/DY+z69yCycL9A==}
+  '@iconify-json/simple-icons@1.2.99':
+    resolution: {integrity: sha512-kouZhqvUoNdxEe+lZksbJJZMCZv4b4Ob62O1GW3fcpz/I0mVPzM+9/Qf/DUuv5ns8l6c46D8M/ubhJjjbLp9HQ==}
 
   '@iconify/svelte@5.2.2':
     resolution: {integrity: sha512-XMXxD3nzH7yB68C3K4sNwzrJ1TBscODR0ZqCeNf0KGuEMCTSuCo0jHNDZ0o0iRXTylO41NSz/DWam/4atLG1yw==}
@@ -4189,8 +4189,8 @@ packages:
   layout-base@2.0.1:
     resolution: {integrity: sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==}
 
-  legacy-javascript@0.0.1:
-    resolution: {integrity: sha512-lPyntS4/aS7jpuvOlitZDFifBCb4W8L/3QU0PLbUTUj+zYah8rfVjYic88yG7ZKTxhS5h9iz7duT8oUXKszLhg==}
+  legacy-javascript@0.0.3:
+    resolution: {integrity: sha512-1r6MT4dVaJyXt4G07Cm2cQ0AUaLJdefiEp4SmIAylA++gnEQ82YvmzE58RkM5EP0fk5hROLCslUPGnwIYdZQVA==}
 
   lie@3.1.1:
     resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
@@ -7986,7 +7986,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.98':
+  '@iconify-json/simple-icons@1.2.99':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -8340,7 +8340,7 @@ snapshots:
 
   '@paulirish/trace_engine@0.0.53':
     dependencies:
-      legacy-javascript: 0.0.1
+      legacy-javascript: 0.0.3
       third-party-web: 0.30.0
 
   '@pkgjs/parseargs@0.11.0':
@@ -11287,7 +11287,7 @@ snapshots:
 
   layout-base@2.0.1: {}
 
-  legacy-javascript@0.0.1: {}
+  legacy-javascript@0.0.3: {}
 
   lie@3.1.1:
     dependencies:
