@@ -49,14 +49,14 @@ permissions:
 
 env:
   # TODO: 替换为你的内容仓。
-  CONTENT_REPOSITORY: OWNER/shirone-content
+  CONTENT_REPOSITORY: HHLuckyE/blog-content-repo-shirone
   CONTENT_WORKING_COPY: .content-src
 
 jobs:
   deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 720
     env:
       CI: true
       # 让 content:sync 走「本地目录」模式，内容由下面的 checkout 步骤取得。
@@ -160,8 +160,21 @@ jobs:
       # ───────────────────────────────────────────────────────────────────────
       - name: Deploy
         run: |
-          echo "把这一步替换成你的平台部署命令，构建产物在 dist/。" >&2
-          exit 1
+             - name: Deploy to server
+             env:
+              DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+              DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+              DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+              DEPLOY_DIR: /var/www/kyblog-shirone
+              run: |
+              set -euo pipefail
+              mkdir -p ~/.ssh && chmod 700 ~/.ssh
+              printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+              chmod 600 ~/.ssh/deploy_key
+              ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+              rsync -az --delete -e "ssh -i ~/.ssh/deploy_key" \
+              dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIR/dist/"
+             exit 1
 
       # 变体 A：Vercel（关闭 Vercel 的 Git 自动构建，改由 Actions 交付产物）
       # - name: Deploy to Vercel
