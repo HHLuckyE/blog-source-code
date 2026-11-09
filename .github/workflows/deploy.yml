@@ -160,9 +160,9 @@ jobs:
       # ───────────────────────────────────────────────────────────────────────
       - name: Deploy to server
         env:
-            DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-            DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-            DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+            DEPLOY_HOST: ${{ secrets.SERVER_HOST }}
+            DEPLOY_USER: ${{ secrets.SERVER_USER }}
+            DEPLOY_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
             DEPLOY_DIR: /var/www/kyblog-shirone
         run: |
             set -euo pipefail
@@ -172,7 +172,6 @@ jobs:
             ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
             rsync -az --delete -e "ssh -i ~/.ssh/deploy_key" \
             dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIR/dist/"
-            exit 1
 
       # 变体 A：Vercel（关闭 Vercel 的 Git 自动构建，改由 Actions 交付产物）
       # - name: Deploy to Vercel
