@@ -158,23 +158,21 @@ jobs:
       # ───────────────────────────────────────────────────────────────────────
       # 部署：按你的平台替换这一步，下面给了四种常见写法。
       # ───────────────────────────────────────────────────────────────────────
-      - name: Deploy
+      - name: Deploy to server
+        env:
+            DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+            DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+            DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+            DEPLOY_DIR: /var/www/kyblog-shirone
         run: |
-             - name: Deploy to server
-             env:
-              DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-              DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-              DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-              DEPLOY_DIR: /var/www/kyblog-shirone
-              run: |
-              set -euo pipefail
-              mkdir -p ~/.ssh && chmod 700 ~/.ssh
-              printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
-              chmod 600 ~/.ssh/deploy_key
-              ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
-              rsync -az --delete -e "ssh -i ~/.ssh/deploy_key" \
-              dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIR/dist/"
-             exit 1
+            set -euo pipefail
+            mkdir -p ~/.ssh && chmod 700 ~/.ssh
+            printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+            chmod 600 ~/.ssh/deploy_key
+            ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+            rsync -az --delete -e "ssh -i ~/.ssh/deploy_key" \
+            dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIR/dist/"
+            exit 1
 
       # 变体 A：Vercel（关闭 Vercel 的 Git 自动构建，改由 Actions 交付产物）
       # - name: Deploy to Vercel
